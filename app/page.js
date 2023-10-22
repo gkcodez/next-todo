@@ -21,7 +21,11 @@ export default function Home() {
 
   function addTask(task) {
     setTasks((prev) => {
-      return [...prev, task];
+      const newTasks = [...prev, task];
+      newTasks.sort((a, b) => {
+        return a.isDone === b.isDone ? 0 : !a.isDone ? -1 : 1;
+      });
+      return newTasks;
     });
   }
 
@@ -29,6 +33,15 @@ export default function Home() {
     setTasks((prev) => {
       const newTasks = [...prev];
       newTasks[index].isDone = isDone;
+      newTasks.sort((a, b) => {
+        return a.isDone === b.isDone
+          ? a.priority
+            ? -1
+            : 0
+          : !a.isDone
+          ? -1
+          : 1;
+      });
       return newTasks;
     });
   }
@@ -45,7 +58,9 @@ export default function Home() {
     setTasks((prev) => {
       const newTasks = [...prev];
       newTasks[index].priority = priority;
-      console.log(priority);
+      newTasks.sort((a, b) => {
+        return a.priority === b.priority ? 0 : a.priority ? -1 : 1;
+      });
       return newTasks;
     });
   }
@@ -61,6 +76,11 @@ export default function Home() {
           Completed
         </h3>
         <AddTask onAdd={addTask} className="mt-10" />
+        {/* <div className="flex items-center justify-around my-10">
+          <hr className="w-1/3" />
+          <p className="text-white">High</p>
+          <hr className="w-1/3" />
+        </div> */}
         {tasks &&
           tasks.map((task, i) => {
             return (
