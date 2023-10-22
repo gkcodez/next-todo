@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { FaCalendar, FaPlus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 
 export default function AddTask({ onAdd }) {
   const [task, setTask] = useState({
@@ -31,13 +31,13 @@ export default function AddTask({ onAdd }) {
     });
   };
 
-  const togglePriority = (newPriority) => {
-    setTask({ ...task, priority: newPriority });
-  };
+  // const togglePriority = (newPriority) => {
+  //   setTask({ ...task, priority: newPriority });
+  // };
 
   return (
     <form className="flex gap-3 my-3 w-full" onSubmit={handleClick}>
-      <div className="relative w-full">
+      <div className="w-full">
         <input
           type="text"
           placeholder="Eg: Buy groceries"
@@ -45,9 +45,9 @@ export default function AddTask({ onAdd }) {
           value={task.name}
           onChange={handleChange}
         />
-        <div className="absolute top-2 right-2">
-          <div className="flex gap-2 items-center">
-            <button
+      </div>
+      <div className="flex gap-2 items-center">
+        {/* <button
               type="button"
               className={`font-medium ${
                 task.priority ? "bg-yellow-600" : "bg-gray-600"
@@ -55,18 +55,16 @@ export default function AddTask({ onAdd }) {
               onClick={() => togglePriority(!task.priority)}
             >
               <FaCalendar className="text-2xl" />
-            </button>
-            <button
-              type="submit"
-              className={`${
-                task.name != "" ? "bg-sky-600" : "bg-gray-600"
-              } font-medium  text-white p-4 rounded-md`}
-              hidden={task.name == ""}
-            >
-              <FaPlus className="text-2xl" />
-            </button>
-          </div>
-        </div>
+            </button> */}
+        <button
+          type="submit"
+          className={`${
+            task.name != "" ? "bg-sky-600" : "bg-gray-600"
+          } font-medium  text-white p-4 rounded-md`}
+          hidden={task.name == ""}
+        >
+          <FaPlus className="text-2xl" />
+        </button>
       </div>
     </form>
   );
