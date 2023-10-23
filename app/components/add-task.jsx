@@ -36,7 +36,7 @@ export default function AddTask({ onAdd }) {
   // };
 
   return (
-    <form className="flex gap-3 my-3 w-full" onSubmit={handleClick}>
+    <form className="flex gap-3 w-full" onSubmit={handleClick}>
       <div className="w-full">
         <input
           type="text"

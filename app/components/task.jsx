@@ -15,7 +15,7 @@ export default function Task({
         <div
           className={`${
             isDone ? "opacity-50" : "opacity-100"
-          } bg-gray-600 flex gap-2 px-4 py-2 items-center flex gap-2 align-center justify-between bg-gray-50 rounded-lg w-full`}
+          } bg-slate-600 flex gap-2 px-4 py-2 items-center flex gap-2 align-center justify-between rounded-lg w-full`}
         >
           <div className="flex gap-2 items-center">
             <Checkbox

@@ -4,14 +4,14 @@ export default function Checkbox({ isDone, onClick }) {
   return (
     <div onClick={onClick}>
       {!isDone && (
-        <div>
+        <button>
           <FaSquare className="text-gray-100 text-4xl rounded-sm" />
-        </div>
+        </button>
       )}
       {isDone && (
-        <div>
+        <button>
           <FaSquareCheck className="text-yellow-500 text-4xl rounded-sm" />
-        </div>
+        </button>
       )}
     </div>
   );
