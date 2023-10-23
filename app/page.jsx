@@ -59,7 +59,13 @@ export default function Home() {
       const newTasks = [...prev];
       newTasks[index].priority = priority;
       newTasks.sort((a, b) => {
-        return a.priority === b.priority ? 0 : a.priority ? -1 : 1;
+        return a.isDone === b.isDone
+          ? a.priority
+            ? -1
+            : 0
+          : !a.isDone
+          ? -1
+          : 1;
       });
       return newTasks;
     });
@@ -77,7 +83,7 @@ export default function Home() {
             Tasks Completed ( {tasks?.filter((task) => task.isDone).length} /{" "}
             {tasks?.length} )
           </h3>
-          <AddTask onAdd={addTask} className="mt-10" />
+          <AddTask onAdd={addTask} />
           <div className="xl:h-4/6 lg:h-4/6 md:h-4/6 h-full overflow-y-scroll">
             {tasks &&
               tasks.map((task, i) => {
