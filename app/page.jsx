@@ -73,7 +73,7 @@ export default function Home() {
 
   return (
     <div className="relative flex flex-col align-center justify-between w-full h-screen">
-      <div className="w-full h-44 bg-emerald-700"></div>
+      <div className="w-full h-44 bg-gray-800"></div>
       <div className="absolute w-full flex items-start justify-center h-screen">
         <div className="z-0 pt-8 mx-5 xl:w-3/4 lg:w-3/4 md:w-full sm:w-full w-full h-screen">
           <h3 className="text-white text-3xl font-medium uppercase text-center">
@@ -84,13 +84,13 @@ export default function Home() {
             {tasks?.length} )
           </h3>
           <AddTask onAdd={addTask} />
-          <div className="xl:h-4/6 lg:h-4/6 md:h-4/6 h-full overflow-y-scroll">
+          <div className="xl:h-5/6 lg:h-4/6 md:h-4/6 h-full overflow-y-scroll">
             {tasks &&
               tasks.map((task, i) => {
                 return (
                   <Task
                     key={i}
-                    {...task}
+                    task={task}
                     onToggleTaskStatus={() => toggleTaskStatus(i, !task.isDone)}
                     onDeleteTask={() => deleteTask(i)}
                     onPrioritizeTask={() => prioritizeTask(i, !task.priority)}

@@ -31,10 +31,6 @@ export default function AddTask({ onAdd }) {
     });
   };
 
-  // const togglePriority = (newPriority) => {
-  //   setTask({ ...task, priority: newPriority });
-  // };
-
   return (
     <form className="flex gap-3 w-full" onSubmit={handleClick}>
       <div className="w-full">
@@ -47,20 +43,11 @@ export default function AddTask({ onAdd }) {
         />
       </div>
       <div className="flex gap-2 items-center">
-        {/* <button
-              type="button"
-              className={`font-medium ${
-                task.priority ? "bg-yellow-600" : "bg-gray-600"
-              } text-white p-4 rounded-md`}
-              onClick={() => togglePriority(!task.priority)}
-            >
-              <FaCalendar className="text-2xl" />
-            </button> */}
         <button
           type="submit"
           className={`${
             task.name != "" ? "bg-sky-600" : "bg-gray-600"
-          } font-medium  text-white p-4 rounded-md`}
+          } font-medium  text-white p-4 rounded-md hover:scale-105 transition-all`}
           hidden={task.name == ""}
         >
           <FaPlus className="text-2xl" />
